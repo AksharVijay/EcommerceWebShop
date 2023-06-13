@@ -1,0 +1,9 @@
+.content{
+    flex-grow: 1;
+    background-color: aliceblue;
+    padding: 10px;
+}
+
+.root{
+    flex-grow: 1;
+}
