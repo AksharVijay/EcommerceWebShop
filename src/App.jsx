@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar/Navbar';
 import Products from './components/Products/Products';
 import { commerce } from './lib/commerce';
+import Cart from './components/Cart/Cart';
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
   }
 
   const handleAddToCart = async(productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity)
+    const item = await commerce.cart.add(productId, quantity);
+    setCarts(item.carts)
   }
 
   useEffect(() => {
@@ -33,8 +35,9 @@ function App() {
 
   return (
     <>
-      <Navbar/>
-      <Products products={products}/>
+      <Navbar totalItems={carts.total_items}/>
+      <Cart carts={carts}/>
+      {/* <Products products={products} onAddToCart={handleAddToCart}/> */}
     </>
   )
 }

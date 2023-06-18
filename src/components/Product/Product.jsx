@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, CardMedia, CardContent, CardActions, Typography, IconButton} from "@mui/material";
 import { AddShoppingCart } from '@mui/icons-material';
 import styles from "./Product.module.css";
-const Product = ({product}) => {
+const Product = ({product, onAddToCart}) => {
   return (
     <div>
         <Card className={styles.root}>
@@ -19,7 +19,7 @@ const Product = ({product}) => {
                     <Typography dangerouslySetInnerHTML={{__html: product.description}}  variant='body2' color="textSecondary" />
             </CardContent>
             <CardActions disableSpacing className={styles.cardActions}>
-                <IconButton aria-label='Add to Cart'>
+                <IconButton aria-label='Add to Cart' onClick={ () =>onAddToCart(product.id, 1)}>
                     <AddShoppingCart />
                 </IconButton>
             </CardActions>
